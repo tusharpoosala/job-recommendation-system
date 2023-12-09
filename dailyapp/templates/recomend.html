@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+  <head>
+    <title>Job Recomendation System</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery.timepicker.css' %}">
+
+
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+   {% include 'candidate_header.html' %}
+
+    <div class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/job.png' %});" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-start">
+             <div class="col-md-12 ftco-animate text-center mb-5">
+            <h1 class="mb-3 bread">Recomendations</h1>
+          </div>
+        </div>
+      </div>
+       </div>
+              <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap text-center">
+                            <h2>View Recomendations </h2>
+                        </div>
+                    </div>
+                </div>
+
+   <section class="contact-section ml-2 " >
+    <table border="1" cellspacing="0" cellpadding="10" width="100%">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Title </th>
+        <th>Description</th>
+        <th>Salary</th>
+        <th>Experience</th>
+        <th>Required Skills</th>
+        <th>Responsibilities</th>
+        <th>Employer Email</th>
+        <th>City </th>
+        <th>Interview Date </th>
+        <th>Posted Date </th>
+        <th>Notification </th>
+
+
+    </tr>
+    </thead>
+    <tbody>
+
+            {% for x in recomend %}
+    <tr>
+        <td>{{x.id}}</td>
+        <td>{{x.title}}</td>
+        <td>{{x.description}}</td>
+        <td>{{x.salary}}</td>
+        <td>{{x.experience}}</td>
+        <td>{{x.skills_required}}</td>
+        <td>{{x.responsibility}}</td>
+        <td>{{x.employer.email}}</td>
+        <td>{{x.city}}</td>
+        <td>{{x.interview_date}}</td>
+        <td>{{x.posted_date}}</td>
+        <td><button class="btn btn-warning"><a href="/applyjob/{{x.id}}">apply</a></button></td>
+
+
+    </tr>
+    {% empty %}
+            <tr>
+    <td>no data found</td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+ </section>
+
+    <!-- ================ contact section start ================= -->
+
+    <!-- ================ contact section end ================= -->
+
+
+    <!-- Request Back End -->
+
+
+  {% include 'footer.html' %}
+
+
+
+    </body>
+
+    </html>

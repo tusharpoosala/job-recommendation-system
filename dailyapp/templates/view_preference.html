@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+  <head>
+    <title>Job Recomendation System </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery.timepicker.css' %}">
+
+
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+   {% include 'candidate_header.html' %}
+
+    <div class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/job.png' %});" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-start">
+             <div class="col-md-12 ftco-animate text-center mb-5">
+            <h1 class="mb-3 bread">View Preference</h1>
+          </div>
+        </div>
+      </div>
+       </div>
+              <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap text-center">
+                            <h2>View Preferences </h2>
+                        </div>
+                    </div>
+                </div>
+
+   <section class="contact-section ml-2 " >
+    <table border="1" cellspacing="0" cellpadding="10" width="100%">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Candidate Email</th>
+        <th>City </th>
+        <th>Technologies</th>
+        <th>Experience</th>
+        <th>Salary</th>
+        <th>Update </th>
+        <th>Delete </th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+            {% for preference in preferences %}
+    <tr>
+        <td>{{preference.id}}</td>
+        <td>{{preference.candidate.email}}</td>
+        <td>{{preference.city}}</td>
+        <td>{{preference.technologies}}</td>
+        <td>{{preference.experience}}</td>
+        <td>{{preference.salary}}</td>
+        <td><button class="btn btn-warning"><a href="/preference_edit/{{preference.id}}">edit</a></button></td>
+        <td><button class="btn btn-warning"><a href="/preference_delete/{{preference.id}}" onclick="return confirm('really want delete?');">delete</a></button></td>
+
+
+    </tr>
+    {% empty %}
+            <tr>
+    <td>no data found</td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+ </section>
+
+    <!-- ================ contact section start ================= -->
+
+    <!-- ================ contact section end ================= -->
+
+
+    <!-- Request Back End -->
+
+
+  {% include 'footer.html' %}
+
+
+
+    </body>
+
+    </html>

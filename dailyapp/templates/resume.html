@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+  <head>
+    <title>Job Recomendation System </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery.timepicker.css' %}">
+
+
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+  {% include 'candidate_header.html' %}
+
+    <div class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/job.png' %});" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-start">
+             <div class="col-md-12 ftco-animate text-center mb-5">
+            <h1 class="mb-3 bread">Resume Upload</h1>
+          </div>
+        </div>
+      </div>
+  </div>
+   <section class="contact-section ml-3">
+        <div class="row">
+                    <div class="col-12">
+                        <h2 class="contact-title" align="center">Resume Upload</h2>
+                    </div>
+                    <div class="col-lg-6">
+                        <form class="form-contact" action="" method="POST"  enctype="multipart/form-data"  >
+                            {% csrf_token %}
+                            <div class="row">
+                                   <div class="col-sm-7" >
+                                    <div class="form-group">
+                                        <label>Candidate Id:</label>
+                                        <input class="form-control valid" name="person" value="{{candidate}}" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your email'" readonly >
+                                    </div>
+                                </div>
+                                 <div class="col-sm-7" >
+                                    <div class="form-group">
+                                          <label>Resume Upload:</label>
+                                        <input class="form-control valid" name="resume" type="file"  onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your email'" >
+                                    </div>
+                                </div>
+                                <div class="col-sm-7" >
+                                <div class="form-group">
+
+                                    <div class="col-sm-4">
+                                        <button type="submit" class="btn btn-primary" >upload</button><br>
+                                    </div>
+                          </div>
+                            </div>
+                            </div>
+                        </form>
+
+        </div>
+        </div>
+        </section>
+
+    <!-- ================ contact section end ================= -->
+
+
+
+
+    <!-- Request Back End -->
+
+
+  {% include 'footer.html' %}
+
+
+
+    </body>
+
+    </html>

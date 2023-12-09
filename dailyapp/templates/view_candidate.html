@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+  <head>
+    <title>Job Recomendation System </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery.timepicker.css' %}">
+
+
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+   {% include 'candidate_header.html' %}
+
+    <div class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/job.png' %});" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-start">
+             <div class="col-md-12 ftco-animate text-center mb-5">
+            <h1 class="mb-3 bread">View Profile</h1>
+          </div>
+        </div>
+      </div>
+       </div>
+              <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap text-center">
+                            <h2>View Profile </h2>
+                        </div>
+                    </div>
+                </div>
+
+   <section class="contact-section ml-2 " >
+    <table border="1" cellspacing="0" cellpadding="5" width="100%">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Email</th>
+        <th>Fullname</th>
+        <th>mobile</th>
+        <th>City</th>
+        <th>Qualification</th>
+        <th>Candidate Image</th>
+        <th>Technologies</th>
+        <th>About Me </th>
+        <th>Experience </th>
+        <th>Skills </th>
+        <th>Update </th>
+        <th>delete </th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+
+    <tr>
+        <td>{{candidates.id}}</td>
+        <td>{{candidates.email}}</td>
+        <td>{{candidates.fullname}}</td>
+        <td>{{candidates.mobile}}</td>
+        <td>{{candidates.city}}</td>
+        <td>{{candidates.qualification}}</td>
+        <td><img src="{{candidates.candidate_image.url}}" width="100"></td>
+        <td>{{candidates.technologies}}</td>
+        <td>{{candidates.about_me}}</td>
+        <td>{{candidates.experience}}</td>
+        <td>{{candidates.skills}}</td>
+        <td><button class="btn btn-warning"><a href="/candidate_edit/{{candidates.id}}">edit</a></button></td>
+        <td><button class="btn btn-warning"><a href="/candidate_delete/{{candidates.id}}" onclick="return confirm('really want delete?');">delete</a></button></td>
+
+
+    </tr>
+
+    </tbody>
+</table>
+ </section>
+
+    <!-- ================ contact section start ================= -->
+
+    <!-- ================ contact section end ================= -->
+
+
+    <!-- Request Back End -->
+
+
+  {% include 'footer.html' %}
+
+
+
+    </body>
+
+    </html>

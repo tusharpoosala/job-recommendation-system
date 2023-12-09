@@ -1,0 +1,26 @@
+
+{% load static %}
+
+   <header>
+	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container-fluid px-md-4	">
+	      <a class="navbar-brand" href="/">Job Recomendation System </a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+				<li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+	           <li class="nav-item"><a href="{% url 'employer_login' %}" class="nav-link"> Employer</a></li>
+	          <li class="nav-item"><a href="{% url 'candidate_login' %}" class="nav-link"> Candidate</a></li>
+<!--	          <li class="nav-item"><a href="http://127.0.0.1:8000/admin/login/?next=/admin/" class="nav-link">Admin</a></li>-->
+<!--	          <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>-->
+<!--	          <li class="nav-item cta mr-md-1"><a href="{% url 'new_post' %}" class="nav-link">Post a Job</a></li>-->
+<!--	          <li class="nav-item cta cta-colored"><a href="{% url 'job_post' %}" class="nav-link">Want a Job</a></li>-->
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+
+       </header>

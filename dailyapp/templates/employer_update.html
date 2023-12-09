@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+  <head>
+    <title>Job Recomendation System </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery.timepicker.css' %}">
+
+
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+  {% include 'employer_header.html' %}
+
+    <div class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/job.png' %});" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-start">
+              <div class="col-md-12 ftco-animate text-center mb-5">
+            <h1 class="mb-3 bread">Update Details</h1>
+          </div>
+        </div>
+      </div>
+  </div>
+    <!-- ================ contact section start ================= -->
+
+    <section class="contact-section ml-5" >
+        <div class="row">
+                    <div class="col-12">
+                        <h2 class="contact-title" align="center">Update</h2>
+                    </div>
+                    <div class="col-lg-7">
+                        <form class="form-contact " action="{% url 'employer_update' %}" method="POST" enctype="multipart/form-data" >
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-7" >
+                                    <div class="form-group">
+                                          <label class="font-weight-bold">Enter Company Name:</label>
+                                        <input class="form-control valid" name="company_name" id="company_name" type="text" value="{{employer.company_name}}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter  company_name'" placeholder="Enter  company_name" required>
+                                    </div>
+                                </div>
+                                 <div class="col-7" >
+                                    <div class="form-group">
+                                          <label class="font-weight-bold">Employer Id:</label>
+                                        <input class="form-control valid" name="id"  type="text" value="{{employer.id}}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter  company_name'" placeholder="Enter  company_name" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-sm-7" >
+                                    <div class="form-group">
+                                        <label class="font-weight-bold">Enter Email:</label>
+                                        <input class="form-control valid" name="email" id="email" type="email" value="{{employer.email}}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your email'" placeholder="Enter your email" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-7" >
+                                    <div class="form-group">
+                                        <label class="font-weight-bold">Enter Password:</label>
+                                        <input class="form-control valid" name="password" id="password" type="password" value="{{employer.password}}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter password'" placeholder="password" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold">Enter Mobile Number:</label>
+                                        <input class="form-control" name="mobile" id="mobile" type="number" value="{{employer.mobile}}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter mobile'" placeholder="Enter mobile number" required>
+                                    </div>
+                                </div>
+                                 <div class="col-sm-7">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold">Enter Address:</label>
+                                        <textarea  class="form-control" name="address"    rows="6" cols="12"   placeholder="Enter  address" required >{{employer.address}}</textarea>
+                                    </div>
+                                </div>
+                                   <div class="col-sm-7">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold">Enter City:</label>
+                                        <input class="form-control" name="city" id="city" type="text" value="{{employer.city}}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter city'" placeholder="Enter  city" required>
+                                    </div>
+                                </div>
+                                   <div class="col-7">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold">Enter Website:</label>
+                                        <input class="form-control" name="website" id="website" type="url" value="{{employer.website}}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter website'" placeholder="Enter  website" required>
+                                    </div>
+                                </div>
+                                <div class="col-7">
+                                    <div class="form-group">
+                                     <label for="img" class="font-weight-bold">Employer image:</label>{{employer.employer_image}}
+                                     <input type="file" id="img" name="employer_image" >
+                                    </div>
+                                </div>
+                                   <div class="col-7">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold">Enter Estd Year:</label>
+                                        <input class="form-control" name="established" id="established" type="number" value="{{employer.established}}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter estd year'" placeholder="Enter  estd year" required>
+                                    </div>
+                                </div>
+                              <div class="col-7">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold">Enter About Company:</label>
+                                        <input class="form-control" name="about" id="about" type="text" value="{{employer.about}}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter  about '" placeholder="Enter  about" required>
+                                    </div>
+                                </div>
+                                <div class="col-7">
+                                <div class="form-group ">
+                                        <button type="submit" class="btn btn-primary" >update</button><br>
+                                    </div>
+
+                                </div>
+                        </form>
+
+                    </div>
+        </div>
+        </section>
+    {{msg}}
+    <!-- ================ contact section end ================= -->
+
+    <!-- Request Back Start -->
+
+
+
+
+  {% include 'footer.html' %}
+
+
+
+    </body>
+
+    </html>

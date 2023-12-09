@@ -1,0 +1,34 @@
+
+{% load static %}
+
+   <header>
+	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container-fluid px-md-4	">
+	      <a class="navbar-brand" href="{% url 'unknown' %}">Job Recomendation System</a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+				<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Preferences
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'set_preferences' %}">Set  Preferences</a>
+          <a class="dropdown-item" href="{% url 'view_preference' %}">View Preferences</a>
+		</div>
+				</li>
+				<li class="nav-item"><a href="{% url 'candidate_view' %}" class="nav-link"> View_Profile</a></li>
+				<li class="nav-item"><a href="{% url 'view_notifications' %}" class="nav-link"> View_Jobs</a></li>
+				<li class="nav-item"><a href="{% url 'apply_display' %}" class="nav-link"> Applied_Jobs</a>
+				<li class="nav-item"><a href="{% url 'recomend' %}" class="nav-link"> Recomendations</a></li>
+	          <li class="nav-item"><a href="{% url 'candidate_chpwd' %}" class="nav-link"> Change_Password</a></li>
+	          <li class="nav-item"><a href="{% url 'candidate_logout' %}" class="nav-link">Logout</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+
+       </header>

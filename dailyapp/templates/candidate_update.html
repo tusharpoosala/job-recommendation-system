@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+  <head>
+    <title>Job Recomendation System </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery.timepicker.css' %}">
+
+
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+  {% include 'candidate_header.html' %}
+
+    <div class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/job.png' %});" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-start">
+              <div class="col-md-12 ftco-animate text-center mb-5">
+            <h1 class="mb-3 bread">Update Details</h1>
+          </div>
+        </div>
+      </div>
+  </div>
+    <!-- ================ contact section start ================= -->
+
+    <section class="contact-section ml-5" >
+        <div class="row">
+                    <div class="col-12">
+                        <h2 class="contact-title" align="center">Update</h2>
+                    </div>
+                    <div class="col-lg-7">
+                        <form class="form-contact " action="{% url 'candidate_update' %}" method="POST" enctype="multipart/form-data" >
+                            {% csrf_token %}
+                            <div class="row">
+                                  <div class="col-7" >
+                                    <div class="form-group">
+                                         <label class="font-weight-bold">Candidate Id:</label>
+                                        <input class="form-control valid" name="id"  type="text" value="{{candidate.id}}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter  id'" placeholder="Enter  id" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-sm-7" >
+                                    <div class="form-group">
+                                         <label class="font-weight-bold">Enter Email:</label>
+                                        <input class="form-control valid" name="email" id="email" type="email" value="{{candidate.email}}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your email'" placeholder="Enter your email" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-7" >
+                                    <div class="form-group">
+                                        <label class="font-weight-bold">Enter Password:</label>
+                                        <input class="form-control valid" name="password" id="password" type="password" value="{{candidate.password}}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter password'" placeholder="password" required>
+                                    </div>
+                                </div>
+                                 <div class="col-7" >
+                                    <div class="form-group">
+                                        <label class="font-weight-bold">Enter Fullname:</label>
+                                        <input class="form-control valid" name="fullname" id="fullname" type="text" value="{{candidate.fullname}}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter  fullname'" placeholder="Enter  fullname" required>
+                                    </div>
+                                </div>
+                                <div class="col-7">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold">Enter Mobile Number:</label>
+                                        <input class="form-control" name="mobile" id="mobile" type="number" value="{{candidate.mobile}}"onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter mobile'" placeholder="Enter mobile number" required>
+                                    </div>
+                                </div>
+                                   <div class="col-7">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold">Enter City:</label>
+                                        <input class="form-control" name="city" id="city" type="text" value="{{candidate.city}}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter city'" placeholder="Enter  city" required>
+                                    </div>
+                                </div>
+                                  </div>
+                                   <div class="col-7">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold">Enter Qualification:</label>
+                                        <input class="form-control" name="qualification" id="qualification" type="text" value="{{candidate.qualification}}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter qualification'" placeholder="Enter  qualification" required>
+                                    </div>
+                                </div>
+                               <div>
+                                 <label for="img" class="font-weight-bold">Candidate image:</label>{{candidate.candidate_image}}
+                                 <input type="file" id="img" name="candidate_image" >
+                                </div>
+                                   <div class="col-7">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold">Enter Technologies:</label>
+                                        <input class="form-control" name="technologies" id="technologies" type="text" value="{{candidate.technologies}}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter technologies'" placeholder="Enter  technologies" required>
+                                    </div>
+                                </div>
+                              <div class="col-7">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold">Enter About you:</label>
+                                        <input class="form-control" name="about_me" id="about_me" type="text" value="{{candidate.about_me}}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter  about_me '" placeholder="Enter  about_me" required>
+                                    </div>
+                                </div>
+                            <div class="col-7">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold">Enter Experience:</label>
+                                        <input class="form-control" name="experience" id="experience" type="text" value="{{candidate.experience}}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter  experience '" placeholder="Enter  experience" required>
+                                    </div>
+                                </div><div class="col-7">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold">Enter Skills:</label>
+                                        <input class="form-control" name="skills" id="skills" type="text" value="{{candidate.skills}}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter  skills '" placeholder="Enter  skills" required>
+                                    </div>
+                                </div>
+
+                            <div class="form-group row">
+                                    <label class="col-sm-1 col-form-label"></label>
+                                    <div class="col-sm-4">
+                                        <button type="submit" class="btn btn-primary" >update</button><br>
+                                    </div>
+
+                                </div>
+                        </form>
+
+                    </div>
+        </div>
+        </section>
+    {{msg}}
+    <!-- ================ contact section end ================= -->
+
+    <!-- Request Back Start -->
+
+
+
+
+  {% include 'footer.html' %}
+
+
+
+    </body>
+
+    </html>

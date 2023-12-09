@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+  <head>
+    <title>Job Recomendation System </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery.timepicker.css' %}">
+
+
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+  {% include 'header.html' %}
+
+    <div class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/job.png' %});" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-start">
+<div class="col-md-12 ftco-animate text-center mb-5">
+            <h1 class="mb-3 bread">Employer Registration</h1>
+          </div>        </div>      </div>
+  </div>
+    <!-- ================ contact section start ================= -->
+<center>
+    <section>
+        <div>
+                    <div class="col-12">
+                        <h2 class="contact-title" align="center">Registration</h2>
+                    </div>
+                    <div class="col-lg-7">
+                        <form class="form-contact " action="{% url 'employer_reg' %}" method="POST" enctype="multipart/form-data" >
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-7" >
+                                    <div class="form-group">
+                                        <input class="form-control valid" name="company_name" id="company_name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter  company_name'" placeholder="Enter  company_name" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-7" >
+                                    <div class="form-group">
+                                        <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your email'" placeholder="Enter your email" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-7" >
+                                    <div class="form-group">
+                                        <input class="form-control valid" name="password" id="password" type="password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter password'" placeholder="password" required>
+                                    </div>
+                                </div>
+                                <div class="col-7">
+                                    <div class="form-group">
+                                        <input class="form-control" name="mobile" id="mobile" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter mobile'" placeholder="Enter mobile number" required>
+                                    </div>
+                                </div>
+                                 <div class="col-6">
+                                    <div class="form-group">
+                                        <textarea  class="form-control" name="address"    rows="6" cols="12"  placeholder="Enter  address" required></textarea>
+                                    </div>
+                                </div>
+                                   <div class="col-7">
+                                    <div class="form-group">
+                                        <input class="form-control" name="city" id="city" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter city'" placeholder="Enter  city" required>
+                                    </div>
+                                </div>
+                                   <div class="col-7">
+                                    <div class="form-group">
+                                        <input class="form-control" name="website" id="website" type="url" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter website'" placeholder="Enter  website" required>
+                                    </div>
+                                </div>
+                                    <div class="col-7">
+                                    <div class="form-group">
+                                     <label for="img" class="font-weight-bold">Employer image:</label>
+                                     <input type="file" id="img" name="employer_image" >
+                                    </div>
+                                </div>
+                                    <div class="col-7">
+                                    <div class="form-group">
+                                        <input class="form-control" name="established" id="established" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter estd year'" placeholder="Enter  estd year" required>
+                                    </div>
+                                </div>
+                                    <div class="col-7">
+                                    <div class="form-group">
+                                        <input class="form-control" name="about" id="about" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter  about '" placeholder="Enter  about" required>
+                                    </div>
+                                </div>
+                                <div class="col-7">
+                                <div class="form-group">
+                                        <button type="submit" class="btn btn-primary" >Register</button><br>
+                                        <p><b>Existing user?</b>  <a href="{% url 'employer_login' %}"
+                                            class="btn btn-primary">login</a></p>
+                                    </div>
+                                </div>
+                                </div>
+
+                        </form>
+
+                    </div>
+        </div>
+        </section></center>
+    {{msg}}
+
+
+
+  {% include 'footer.html' %}
+
+
+
+    </body>
+
+    </html>

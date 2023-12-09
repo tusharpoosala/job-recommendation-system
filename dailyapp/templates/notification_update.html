@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+  <head>
+    <title>Job Recomendation System </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery.timepicker.css' %}">
+
+
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+  {% include 'employer_header.html' %}
+
+    <div class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/job.png' %});" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-start">
+             <div class="col-md-12 ftco-animate text-center mb-5">
+            <h1 class="mb-3 bread">Notification Update</h1>
+          </div>
+        </div>
+      </div>
+  </div>
+    <!-- ================ contact section start ================= -->
+
+    <section class="contact-section ml-5" >
+        <div class="row">
+                    <div class="col-12">
+                        <h2 class="contact-title" align="center">Update</h2>
+                    </div>
+                    <div class="col-lg-7">
+                        <form class="form-contact " action="{% url 'notification_update' %}" method="POST" enctype="multipart/form-data" >
+                            {% csrf_token %}
+                            <div class="row">
+                                 <div class="col-sm-7">
+                                    <div class="form-group">
+                                         <label class="font-weight-bold">Notification Id:</label>
+                                        <input class="form-control" name="id"  type="number" value="{{notifications.id}}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter  id'" placeholder="Enter  id" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-7" >
+                                    <div class="form-group">
+                                         <label class="font-weight-bold">Title:</label>
+                                        <input class="form-control valid" name="title" id="title" type="text" value="{{notifications.title}}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter  title'" placeholder="Enter  title" required>
+                                    </div>
+                                </div>
+                                 <div class="col-7" >
+                                    <div class="form-group">
+                                        <label class="font-weight-bold">Description:</label>
+                                        <input class="form-control valid" name="description" id="description"  type="text" value="{{notifications.description}}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter  description'" placeholder="Enter  description" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-7" >
+                                    <div class="form-group">
+                                        <label class="font-weight-bold">Salary:</label>
+                                        <input class="form-control valid" name="salary" id="salary" type="number" value="{{notifications.salary}}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter  salary'" placeholder="Enter  salary" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-7" >
+                                    <div class="form-group">
+                                        <label class="font-weight-bold">Experience:</label>
+                                        <input class="form-control valid" name="experience" id="experience" type="text" value="{{notifications.experience}}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter experience'" placeholder="experience" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold">Required Skills:</label>
+                                        <input class="form-control" name="skills_required" id="skills_required" type="text" value="{{notifications.skills_required}}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter skills_required'" placeholder="Enter skills_required " required>
+                                    </div>
+                                </div>
+
+                                   <div class="col-7">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold">Responsibility:</label>
+                                        <input class="form-control" name="responsibility" id="responsibility" type="text" value="{{notifications.responsibility}}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter responsibility'" placeholder="Enter  responsibility" required>
+                                    </div>
+                                </div>
+                                   <div class="col-sm-7">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold">Employer Id:</label>
+                                        <input class="form-control" name="employer"  type="text" value="{{notifications.employer.id}}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter employer_email'" placeholder="Enter  employer_email" readonly>
+                                    </div>
+                                </div>
+
+                                   <div class="col-sm-7">
+                                    <div class="form-group">
+                                        <label class="font-weight-bold">City:</label>
+                                        <input class="form-control" name="city" id="city" type="text" value="{{notifications.city}}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter  city'" placeholder="Enter  city" required>
+                                    </div>
+                                </div>
+                              <div class="col-sm-7">
+                                        <label class="font-weight-bold">Interview Date:</label>
+                                    <div class="form-group">{{notifications.interview_date}}
+                                        <input class="form-control" name="interview_date" id="interview_date" type="date"  onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter  interview_date '" placeholder="Enter  interview_date" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                <div class="form-group">
+                                        <button type="submit" class="btn btn-primary" >update</button><br>
+                                    </div>
+
+                                </div>
+                        </form>
+
+                    </div>
+        </div>
+        </section>
+    {{msg}}
+    <!-- ================ contact section end ================= -->
+
+    <!-- Request Back Start -->
+
+
+
+
+  {% include 'footer.html' %}
+
+
+
+    </body>
+
+    </html>
